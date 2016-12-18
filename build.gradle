@@ -17,3 +17,14 @@ task wrapper(type: Wrapper) {
    gradleVersion = '2.9' //version required
 }
 
+jar {
+    manifest {
+        attributes(
+                "Implementation-Title": project.name,
+                "Implementation-Version": version,
+                "Main-Class": "org.dibek.ForgetMaPlease",
+                "Class-Path": configurations.compile.collect { it.getName() }.join(' ')
+        )
+
+    }
+}

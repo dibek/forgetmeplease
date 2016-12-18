@@ -1,6 +1,8 @@
 package org.dibek;
 
+import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Scanner;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -34,6 +36,11 @@ public class ForgetMaPlease<T> {
         this.limitRank = forgetMePleaseBuilder.limitRank;
         this.defaultNotFoundValue =  ForgetMeWrapper.createDefault(forgetMePleaseBuilder.defaultValue);
     }
+
+    public int add(Long key, T value) {
+        return this.add(key, value, 0);
+    }
+
 
     public synchronized  int add(Long key, T value, int rank) {
         this.fixedSizeMap.computeIfAbsent(key, f -> {
@@ -111,6 +118,45 @@ public class ForgetMaPlease<T> {
             return new ForgetMaPlease<T>(this);
         }
 
+
+    }
+
+    public static void main(String[] args) {
+
+
+        Scanner scanner = new Scanner(System.in);
+
+        //  prompt for the user's name
+        System.out.print("Enter the size of the map: ");
+
+        String sizeMap = scanner.next();
+
+        ForgetMaPlease<String> forgetMaPlease =  new ForgetMePleaseBuilder()
+                .size(Integer.valueOf(sizeMap))
+                .defaultValue("NotFound")
+                .limitRank(20)
+                .build();
+
+
+
+
+        System.out.print("Add a word or a list of words (without spaces and comma separated) to the map: ");
+
+        String itemToInsert = scanner.next();
+
+        String[] words = itemToInsert.replaceAll(";",",").split(",");
+
+        long count = 0;
+        for (String word : words) {
+            System.out.println("Size map  after inserting " + word  + " is " + forgetMaPlease.add(count, word));
+            count++;
+        }
+
+        System.out.print("Try to find something adding a number lower than " + forgetMaPlease.size() + ": ");
+
+        String key = scanner.next();
+
+        System.out.println("Result : " + forgetMaPlease.find(Long.valueOf(key)));
 
     }
 }
