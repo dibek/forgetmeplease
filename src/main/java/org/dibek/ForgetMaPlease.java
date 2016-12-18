@@ -41,8 +41,18 @@ public class ForgetMaPlease<T> {
         return this.add(key, value, 0);
     }
 
-
-    public synchronized  int add(Long key, T value, int rank) {
+    /**
+     * Add values to the map with a starting rank.
+     * If the size of the map is equals to the limit a previous item is removed based on his rank
+     * The operation is synchronized therefore could create slow performance with a big number of operations.
+     * The operation doesn't replace items with exiting keys.
+     *
+     * @param key The long key of the item
+     * @param value The object itself
+     * @param rank The starting rank
+     * @return The size of the map at the moment of the adding
+     */
+    public synchronized int add(Long key, T value, int rank) {
         this.fixedSizeMap.computeIfAbsent(key, f -> {
                     final ForgetMeWrapper<T> forgetMeWrapper = new ForgetMeWrapper.ForgetMeWrapperBuilder()
                             .id(key)
