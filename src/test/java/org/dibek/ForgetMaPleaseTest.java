@@ -29,9 +29,32 @@ public class ForgetMaPleaseTest {
 
 
     @Test
-    public void addItemToForgettingMapTillLimitThenRemoveOlder() throws Throwable {
+    public void addItemDoentChangeSizeMap() throws Throwable {
         assertThat(forgetMaPlease.add(LIMIT_MAP+1L,"aValue",5), equalTo(LIMIT_MAP) );
         assertThat("The size of the map should be equals to", forgetMaPlease.add(LIMIT_MAP+2L,"anotherValue",5), equalTo(LIMIT_MAP) );
+    }
+
+    @Test
+    public void addItemWithLowRankToBeSoonRemoved() throws Throwable {
+        // given
+        forgetMaPlease.add(LIMIT_MAP+1L,"aLowRankOne",0);
+        //when
+        forgetMaPlease.add(LIMIT_MAP+2L,"aHigherRankOne",10);
+        forgetMaPlease.add(LIMIT_MAP+3L,"aMediumRankOne",5);
+        // then
+        assertThat("The key is not present anymore", forgetMaPlease.find(LIMIT_MAP+1l),equalTo("Not Found"));
+    }
+
+    @Test
+    public void addItemWithHighRankNotToBeRemoved() throws Throwable {
+        // given
+        forgetMaPlease.add(LIMIT_MAP+1L,"aLowRankOne",0);
+        //when
+        forgetMaPlease.add(LIMIT_MAP+2L,"aHigherRankOne",10);
+        forgetMaPlease.add(LIMIT_MAP+3L,"aMediumRankOne",5);
+        // then
+        assertThat("The key is not present anymore", forgetMaPlease.find(LIMIT_MAP+1l),equalTo("Not Found"));
+        assertThat("The key with high rank is still there", forgetMaPlease.find(LIMIT_MAP+2l),equalTo("aHigherRankOne"));
     }
 
     @Test
