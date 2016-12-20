@@ -26,6 +26,7 @@ public class ForgetMeWrapper<T> implements Rankable<T>, Comparable<ForgetMeWrapp
         this.rank = rank;
         this.value = value;
         this.limitRank = 10;
+        this.rankCounter = new AtomicInteger(rank);
     }
 
     private  int limitRank ;

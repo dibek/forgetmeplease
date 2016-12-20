@@ -2,20 +2,19 @@ Feature: Forgeting map basic add and find over limit
 
   Scenario: Add an element over the limit to the map
     Given I put in the map the following data
-      | value     |
-      | myValue1  |
-      | myValue2  |
-      | myValue3  |
-      | myValue4  |
-      | myValue5  |
-      | myValue6  |
-      | myValue7  |
-      | myValue8  |
-      | myValue9  |
-      | myValue10 |
-      | myValue11 |
+      | myValue1  | 5    |
+      | myValue2  | 5    |
+      | myValue3  | 5    |
+      | myValue4  | 5    |
+      | myValue5  | 5    |
+      | myValue6  | 5    |
+      | myValue7  | 5    |
+      | myValue8  | 5    |
+      | myValue9  | 5    |
+      | myValue10 | 5    |
+      | myValue11 | 5    |
 
 
-    When I find a term with id: 1
+    When I find a term with id: 0
 
     Then The expected term "NotFound" is found
