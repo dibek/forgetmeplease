@@ -12,6 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class ForgetMeWrapper<T> implements Rankable<T>, Comparable<ForgetMeWrapper<T>>{
 
 
+    public static final long DEFAULT_ID = -1l;
     private Long id;
 
     private Integer rank;
@@ -61,7 +62,7 @@ public class ForgetMeWrapper<T> implements Rankable<T>, Comparable<ForgetMeWrapp
      * @return A default ForgetMeWrapper
      */
     public static ForgetMeWrapper createDefault(Object valueDefault) {
-        return  new ForgetMeWrapperBuilder().id(-1l).rank(0).limitRank(10).value(valueDefault).build();
+        return  new ForgetMeWrapperBuilder().id(DEFAULT_ID).rank(0).limitRank(10).value(valueDefault).build();
     }
 
     @Override
@@ -72,7 +73,6 @@ public class ForgetMeWrapper<T> implements Rankable<T>, Comparable<ForgetMeWrapp
         ForgetMeWrapper<?> that = (ForgetMeWrapper<?>) o;
 
         if (!id.equals(that.id)) return false;
-        if (!rank.equals(that.rank)) return false;
         return value.equals(that.value);
 
     }
@@ -80,7 +80,6 @@ public class ForgetMeWrapper<T> implements Rankable<T>, Comparable<ForgetMeWrapp
     @Override
     public int hashCode() {
         int result = id.hashCode();
-        result = 31 * result + rank.hashCode();
         result = 31 * result + value.hashCode();
         return result;
     }
@@ -96,9 +95,9 @@ public class ForgetMeWrapper<T> implements Rankable<T>, Comparable<ForgetMeWrapp
 
     @Override
     public int compareTo(ForgetMeWrapper<T> o) {
-        return Integer.compare(this.getRank(), o.getRank());
+        int rankCompare = Integer.compare(this.getRank(), o.getRank());
+        return rankCompare == 0? Long.compare(this.getId(),o.getId()) : rankCompare;
     }
-
 
     /**
      * A builder to simplify the creation of the wrapper.

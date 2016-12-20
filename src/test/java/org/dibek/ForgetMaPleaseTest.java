@@ -58,6 +58,19 @@ public class ForgetMaPleaseTest {
     }
 
     @Test
+    public void findAnItemIncreaseHisRank() throws Throwable {
+        //given
+        forgetMaPlease.add(LIMIT_MAP+1L,"wasALowRankOne",5);
+        //when
+        for (int i = 0; i< 10; i++) {
+            forgetMaPlease.find(LIMIT_MAP+1L);
+        }
+        // and
+        forgetMaPlease.add(LIMIT_MAP+2L,"aMediumRankOne",5);
+        assertThat("The key is still there", forgetMaPlease.find(LIMIT_MAP+1L),equalTo("wasALowRankOne"));
+    }
+
+    @Test
     public void addItemAndRetrieveIt() throws  Throwable{
         forgetMaPlease.add(LIMIT_MAP+1L,"aValue",5);
         String myValue = forgetMaPlease.find(LIMIT_MAP+1L);
@@ -68,17 +81,22 @@ public class ForgetMaPleaseTest {
     public void addItemOverLimitAndAssertElementSearchedIsNotRemoved() throws NotFoundException {
 
 
-        forgetMaPlease.find(0L);
-        forgetMaPlease.find(0L);
-        forgetMaPlease.find(0L);
 
-        forgetMaPlease.add(LIMIT_MAP+1L,"aValue",1);
-        assertThat (forgetMaPlease.find(0L), equalTo("myValue0"));
+
+        forgetMaPlease.add(LIMIT_MAP+1L,"aValue",4);
+
+        forgetMaPlease.find(LIMIT_MAP+1L);
+        forgetMaPlease.find(LIMIT_MAP+1L);
+        forgetMaPlease.find(LIMIT_MAP+1L);
+
+        forgetMaPlease.add(LIMIT_MAP+2L,"aValueWithRankSlightyHigher",4);
+
+        assertThat (forgetMaPlease.find(LIMIT_MAP+1L), equalTo("aValue"));
     }
 
     private void fillForgetMap(int limit) {
         for (long num = 0; num < limit;  num++) {
-            forgetMaPlease.add(num,"myValue" + num,new Random().nextInt(10));
+            forgetMaPlease.add(num,"myValue" + num,5);
         }
     }
 
