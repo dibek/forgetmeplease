@@ -22,6 +22,10 @@ The tests can be run with the command:
 
 ./gradlew clean test
 
+The BDD tests can be run with this command:
+
+./gradlew clean cucumberTests
+
 ```
 Command line
 

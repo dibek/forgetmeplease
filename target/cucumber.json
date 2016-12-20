@@ -1,0 +1,472 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 3,
+        "name": "Add a list of element and find one of them",
+        "description": "",
+        "id": "forgeting-map-basic-add-and-find;add-a-list-of-element-and-find-one-of-them",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 152331292,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "I put in the map the following data",
+            "match": {
+              "location": "ForgotMeSteps.putTermWithValue(String,Integer\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "myValue1",
+                  "5"
+                ],
+                "line": 5
+              },
+              {
+                "cells": [
+                  "myValue2",
+                  "5"
+                ],
+                "line": 6
+              },
+              {
+                "cells": [
+                  "myValue3",
+                  "5"
+                ],
+                "line": 7
+              },
+              {
+                "cells": [
+                  "myValue4",
+                  "5"
+                ],
+                "line": 8
+              },
+              {
+                "cells": [
+                  "myValue5",
+                  "5"
+                ],
+                "line": 9
+              },
+              {
+                "cells": [
+                  "myValue6",
+                  "5"
+                ],
+                "line": 10
+              },
+              {
+                "cells": [
+                  "myValue7",
+                  "5"
+                ],
+                "line": 11
+              },
+              {
+                "cells": [
+                  "myValue8",
+                  "5"
+                ],
+                "line": 12
+              },
+              {
+                "cells": [
+                  "myValue9",
+                  "5"
+                ],
+                "line": 13
+              },
+              {
+                "cells": [
+                  "myValue10",
+                  "5"
+                ],
+                "line": 14
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1344682,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "I find a term with id: 3",
+            "match": {
+              "arguments": [
+                {
+                  "val": "3",
+                  "offset": 23
+                }
+              ],
+              "location": "ForgotMeSteps.findTermWithId(long)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 2666544,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "The expected term \"myValue4\" is found",
+            "match": {
+              "arguments": [
+                {
+                  "val": "myValue4",
+                  "offset": 19
+                }
+              ],
+              "location": "ForgotMeSteps.compareTerms(String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Forgeting map basic add and find",
+    "description": "",
+    "id": "forgeting-map-basic-add-and-find",
+    "keyword": "Feature",
+    "uri": "forgetmebasic.feature"
+  },
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 3,
+        "name": "Add an element over the limit to the map",
+        "description": "",
+        "id": "forgeting-map-basic-add-and-find-over-limit;add-an-element-over-the-limit-to-the-map",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 844339,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "I put in the map the following data",
+            "match": {
+              "location": "ForgotMeSteps.putTermWithValue(String,Integer\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "myValue1",
+                  "0"
+                ],
+                "line": 5
+              },
+              {
+                "cells": [
+                  "myValue2",
+                  "5"
+                ],
+                "line": 6
+              },
+              {
+                "cells": [
+                  "myValue3",
+                  "5"
+                ],
+                "line": 7
+              },
+              {
+                "cells": [
+                  "myValue4",
+                  "5"
+                ],
+                "line": 8
+              },
+              {
+                "cells": [
+                  "myValue5",
+                  "5"
+                ],
+                "line": 9
+              },
+              {
+                "cells": [
+                  "myValue6",
+                  "5"
+                ],
+                "line": 10
+              },
+              {
+                "cells": [
+                  "myValue7",
+                  "5"
+                ],
+                "line": 11
+              },
+              {
+                "cells": [
+                  "myValue8",
+                  "5"
+                ],
+                "line": 12
+              },
+              {
+                "cells": [
+                  "myValue9",
+                  "5"
+                ],
+                "line": 13
+              },
+              {
+                "cells": [
+                  "myValue10",
+                  "5"
+                ],
+                "line": 14
+              },
+              {
+                "cells": [
+                  "myValue11",
+                  "9"
+                ],
+                "line": 15
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 87138,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "I find a term with id: 0",
+            "match": {
+              "arguments": [
+                {
+                  "val": "0",
+                  "offset": 23
+                }
+              ],
+              "location": "ForgotMeSteps.findTermWithId(long)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 140804,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "The expected term \"NotFound\" is found",
+            "match": {
+              "arguments": [
+                {
+                  "val": "NotFound",
+                  "offset": 19
+                }
+              ],
+              "location": "ForgotMeSteps.compareTerms(String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Forgeting map basic add and find over limit",
+    "description": "",
+    "id": "forgeting-map-basic-add-and-find-over-limit",
+    "keyword": "Feature",
+    "uri": "forgetmeoverlimit.feature"
+  },
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 3,
+        "name": "Add an element over the limit to the map and with multiple searches",
+        "description": "",
+        "id": "forgeting-map-with-multiple-finds-to-increase-rank;add-an-element-over-the-limit-to-the-map-and-with-multiple-searches",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 726236,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "I put in the map the following data",
+            "match": {
+              "location": "ForgotMeSteps.putTermWithValue(String,Integer\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "myValue1",
+                  "0"
+                ],
+                "line": 5
+              },
+              {
+                "cells": [
+                  "myValue2",
+                  "5"
+                ],
+                "line": 6
+              },
+              {
+                "cells": [
+                  "myValue3",
+                  "5"
+                ],
+                "line": 7
+              },
+              {
+                "cells": [
+                  "myValue4",
+                  "5"
+                ],
+                "line": 8
+              },
+              {
+                "cells": [
+                  "myValue5",
+                  "5"
+                ],
+                "line": 9
+              },
+              {
+                "cells": [
+                  "myValue6",
+                  "5"
+                ],
+                "line": 10
+              },
+              {
+                "cells": [
+                  "myValue7",
+                  "5"
+                ],
+                "line": 11
+              },
+              {
+                "cells": [
+                  "myValue8",
+                  "5"
+                ],
+                "line": 12
+              },
+              {
+                "cells": [
+                  "myValue9",
+                  "5"
+                ],
+                "line": 13
+              },
+              {
+                "cells": [
+                  "myValue10",
+                  "5"
+                ],
+                "line": 14
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 230297,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "I search a key with id 0 for 7  times to increase its rank",
+            "match": {
+              "arguments": [
+                {
+                  "val": "0",
+                  "offset": 23
+                },
+                {
+                  "val": "7",
+                  "offset": 29
+                }
+              ],
+              "location": "ForgotMeSteps.searchIdToIncreaseRank(long,int)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 161058,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "I add to the exiting map the following data",
+            "match": {
+              "location": "ForgotMeSteps.putOthersTermsWithValue(String,Integer\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "myValue11",
+                  "9"
+                ],
+                "line": 20
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 88394,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "I find a term with id: 0",
+            "match": {
+              "arguments": [
+                {
+                  "val": "0",
+                  "offset": 23
+                }
+              ],
+              "location": "ForgotMeSteps.findTermWithId(long)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 282406,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "The expected term \"myValue1\" is found",
+            "match": {
+              "arguments": [
+                {
+                  "val": "myValue1",
+                  "offset": 19
+                }
+              ],
+              "location": "ForgotMeSteps.compareTerms(String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Forgeting map with multiple finds to increase rank",
+    "description": "",
+    "id": "forgeting-map-with-multiple-finds-to-increase-rank",
+    "keyword": "Feature",
+    "uri": "forgetmepleasewithrankincrease.feature"
+  }
+]
