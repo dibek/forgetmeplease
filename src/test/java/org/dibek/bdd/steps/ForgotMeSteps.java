@@ -19,28 +19,24 @@ import static org.hamcrest.MatcherAssert.assertThat;
  */
 public class ForgotMeSteps {
 
-    ForgetMaPlease forgetMapPlease = (ForgetMaPlease<String>)
-            new ForgetMaPlease.ForgetMePleaseBuilder()
-            .size(10)
-            .limitRank(20)
-            .defaultValue("NotFound")
-            .build();
+    ForgetMaPlease<String> forgetMapPlease = new ForgetMaPlease<>(ForgetMeWrapper.createDefault("NotFound"),10,10);
 
     List<ForgetMeWrapper<String>> listWrappers = new ArrayList<>();
 
     private String myResult;
 
     @Given("I put in the map the following data$")
-    public void putTermWithValue(List<ForgetMeWrapper> listWrappers) {
-        for (ForgetMeWrapper wrapper : listWrappers) {
-            System.out.println("Added " + wrapper.getValue()+ "with Id" + wrapper.getId());
-            forgetMapPlease.add(wrapper.getId(),  wrapper.getValue());
+    public void putTermWithValue(List<String> listItems) {
+        long count = 0;
+        for (String value : listItems) {
+            System.out.println("Added " + value+ "with Id " + count);
+            forgetMapPlease.add(count++,  value);
         }
     }
 
     @When("I find a term with id: (\\d+)")
     public void findTermWithId(long id) {
-        myResult =  (String) forgetMapPlease.find(id);
+        myResult =  forgetMapPlease.find(id);
     }
 
     @Then("^The expected term \"([^\"]*)\" is found$")

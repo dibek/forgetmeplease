@@ -28,6 +28,13 @@ public class ForgetMaPlease<T> {
 
     private int limitRank;
 
+    public ForgetMaPlease(ForgetMeWrapper defaultNotFoundValue, int limitRank,int size) {
+        this.fixedSizeMap = new ConcurrentHashMap<>();
+        this.skipListSet = new ConcurrentSkipListSet<>();
+        this.defaultNotFoundValue = defaultNotFoundValue;
+        this.maxSize = new AtomicInteger(size);
+        this.limitRank = limitRank;
+    }
 
     private ForgetMaPlease(ForgetMePleaseBuilder forgetMePleaseBuilder) {
         this.fixedSizeMap = new ConcurrentHashMap<>();
