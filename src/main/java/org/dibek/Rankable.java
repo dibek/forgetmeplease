@@ -9,5 +9,5 @@ public  interface Rankable<T> {
     Integer getRank();
     T getValueAndIncreaseRank();
 
-
+    T getValue();
 }

@@ -21,6 +21,13 @@ public class ForgetMeWrapper<T> implements Rankable<T>, Comparable<ForgetMeWrapp
 
     private AtomicInteger rankCounter;
 
+    public ForgetMeWrapper(Long id, Integer rank, T value) {
+        this.id = id;
+        this.rank = rank;
+        this.value = value;
+        this.limitRank = 10;
+    }
+
     private  int limitRank ;
 
 
@@ -52,6 +59,12 @@ public class ForgetMeWrapper<T> implements Rankable<T>, Comparable<ForgetMeWrapp
 
     @Override
     public T getValueAndIncreaseRank() {
+        this.increaseRank();
+        return this.value;
+    }
+
+    @Override
+    public T getValue() {
         this.increaseRank();
         return this.value;
     }
